@@ -20,6 +20,7 @@ has_cmd() {
 }
 
 declare -A platforms=(
+	[unknown]=?
 	[android]=
 	[arch]=
 	[centos]=
@@ -47,6 +48,8 @@ elif has_cmd lsb_release; then
 	platform=$(tr '[:upper:]' '[:lower:]' <<<"$platform")
 elif [[ $OSTYPE == linux-gnu ]]; then
 	platform=linux
+else
+	platform=unknown
 fi
 icon=${platforms[$platform]}
 if [ -z "$icon" ]; then
