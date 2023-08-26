@@ -62,3 +62,12 @@ nix-env -iA nixos.nur.repos.Freed-Wu.bash-prompt-style
 # Nix
 . "${XDG_STATE_HOME:-$HOME/.local/state}/nix/profile/share/bash-prompt-style/prompt-style.sh"
 ```
+
+## Customization
+
+```sh
+# format is a string like ' %s ' to add around whitespace for text,
+# which can be ignored
+# sep is '' by default, which can be ignored
+PS1=$(prompt_get_ps1 $format $sep $fg:$bg:text1 $fg:$bg:text2 ...)
+```
