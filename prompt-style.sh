@@ -63,7 +63,12 @@ unset platforms platform has_cmd
 
 prompt_get_ps1() {
 	if [ $# = 0 ]; then
-		set -- black:white:"$prompt_icon${prompt_host_info:-}" black:yellow:" \s \v" black:white:" \t" white:blue:" $(tput bold)\w" white:black:'${GITSTATUS_PROMPT}'
+		set -- \
+			black:white:"$prompt_icon${prompt_host_info:-} \#" \
+			black:yellow:' \s \v' \
+			black:white:' \t' \
+			white:blue:" $(tput bold)\w" \
+			white:black:'${GITSTATUS_PROMPT}'
 	fi
 	local -A colors=(
 		[black]=0
@@ -75,7 +80,7 @@ prompt_get_ps1() {
 		[cyan]=6
 		[white]=7
 	)
-	local ps='' last_bg='' sep='' format=' %s ' prompt_string="\n$ "
+	local ps='' last_bg='' sep='' format=' %s ' prompt_string='\n\$ '
 	if [[ ! $1 =~ : ]]; then
 		prompt_string=$1
 		shift
