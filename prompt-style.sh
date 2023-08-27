@@ -35,7 +35,7 @@ declare -A platforms=(
 )
 if has_cmd ps && [[ $(ps -p1 -ocmd=) == /sbin/docker-init ]]; then
 	platform=docker
-elif [[ $PREFIX == /data/data/com.termux/files/usr ]]; then
+elif [[ ${PREFIX:-} == /data/data/com.termux/files/usr ]]; then
 	platform=android
 elif [[ $OSTYPE == darwin ]]; then
 	platform=macos
@@ -56,14 +56,14 @@ if [ -z "$prompt_icon" ]; then
 	platform=linux
 	prompt_icon=${platforms[$platform]}
 fi
-if [[ -n $SSH_TTY || $USER == root ]]; then
+if [[ -n ${SSH_TTY:-} || $USER == root ]]; then
 	prompt_host_info=" \u@\h"
 fi
 unset platforms platform has_cmd
 
 prompt_get_ps1() {
 	if [ $# = 0 ]; then
-		set -- black:white:"$prompt_icon$prompt_host_info" black:yellow:" \s \v" black:white:" \t" white:blue:" $(tput bold)\w" white:black:'${GITSTATUS_PROMPT}'
+		set -- black:white:"$prompt_icon${prompt_host_info:-}" black:yellow:" \s \v" black:white:" \t" white:blue:" $(tput bold)\w" white:black:'${GITSTATUS_PROMPT}'
 	fi
 	local -A colors=(
 		[black]=0
@@ -75,7 +75,7 @@ prompt_get_ps1() {
 		[cyan]=6
 		[white]=7
 	)
-	local ps last_bg sep='' format=' %s ' prompt_string="\n$ "
+	local ps='' last_bg='' sep='' format=' %s ' prompt_string="\n$ "
 	if [[ ! $1 =~ : ]]; then
 		prompt_string=$1
 		shift

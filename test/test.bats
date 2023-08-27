@@ -3,7 +3,8 @@
 setup() {
 	cd "$(dirname "$BATS_TEST_FILENAME")/.." || exit
 	. test/setup.sh
-	. <(tail -n+16 ./prompt-style.sh)
+	export TERM=xterm
+	. ./prompt-style.sh
 }
 
 @test prompt_get_ps1 {

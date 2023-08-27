@@ -1,6 +1,8 @@
 # bash-prompt-style
 
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/Freed-Wu/bash-prompt-style/main.svg)](https://results.pre-commit.ci/latest/github/Freed-Wu/bash-prompt-style/main)
+[![github/workflow](https://github.com/Freed-Wu/bash-prompt-style/actions/workflows/main.yml/badge.svg)](https://github.com/Freed-Wu/bash-prompt-style/actions)
+[![codecov](https://codecov.io/gh/Freed-Wu/bash-prompt-style/branch/main/graph/badge.svg)](https://codecov.io/gh/Freed-Wu/bash-prompt-style)
 
 [![github/downloads](https://shields.io/github/downloads/Freed-Wu/bash-prompt-style/total)](https://github.com/Freed-Wu/bash-prompt-style/releases)
 [![github/downloads/latest](https://shields.io/github/downloads/Freed-Wu/bash-prompt-style/latest/total)](https://github.com/Freed-Wu/bash-prompt-style/releases/latest)
@@ -66,14 +68,10 @@ nix-env -iA nixos.nur.repos.Freed-Wu.bash-prompt-style
 ## Customize
 
 ```sh
-# prompt_string is "\n$ " by default, which can be ignored
-# format is a string like ' %s ' to add around whitespace for text,
-# which can be ignored
-# sep is '' by default, which can be ignored
 PS1="$(prompt_get_ps1 [prompt_string] [[format] fg_color:bg_color:text [sep]] ...)"
 ```
 
-![prompt_get_ps1](https://github.com/Freed-Wu/bash-prompt-style/assets/32936898/3583d5f8-c1b3-4783-b04c-60f7f490cad7)
+![prompt_get_ps1](https://github.com/Freed-Wu/bash-prompt-style/assets/32936898/efe0951f-155a-4b0a-8ef2-ed40fcd79900)
 
 See
 [powerline-extra-symbols](https://github.com/ryanoasis/powerline-extra-symbols)
