@@ -1,0 +1,33 @@
+---
+"on":
+  push:
+    paths-ignore:
+      - "**.md"
+  pull_request:
+    paths-ignore:
+      - "**.md"
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: mig4/setup-bats@v1
+      - uses: brokenpip3/setup-bats-libs@1.0.0
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: head
+          bundler-cache: true
+      - name: Install Ruby dependencies
+        run: |
+          bundle install
+      - name: Test
+        run: |
+          bundle exec bashcov -- bats -r .
+        env:
+          # due to setup-bats
+          TMPDIR: /tmp
+      - uses: codecov/codecov-action@v3
+        with:
+          files: coverage/codecov-result.json

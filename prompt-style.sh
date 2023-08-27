@@ -75,14 +75,18 @@ prompt_get_ps1() {
 		[cyan]=6
 		[white]=7
 	)
-	local ps last_bg sep='' format=' %s '
+	local ps last_bg sep='' format=' %s ' prompt_string="\n$ "
 	if [[ ! $1 =~ : ]]; then
-		format=$1
+		prompt_string=$1
 		shift
 	fi
 	for section in "$@"; do
 		if [[ ! $section =~ : ]]; then
-			sep=$section
+			if [[ $section =~ %s ]]; then
+				format=$section
+			else
+				sep=$section
+			fi
 			continue
 		fi
 		text=$(printf "$format" "${section##*:}")
@@ -97,7 +101,7 @@ prompt_get_ps1() {
 		ps+="$(tput setaf "$fg" setab "$bg")$text"
 		last_bg=$bg
 	done
-	ps+="\e[0m$(tput setaf "$last_bg")$sep\e[0m\n$ "
+	ps+="\e[0m$(tput setaf "$last_bg")$sep\e[0m$prompt_string"
 	echo "$ps"
 }
 PS1=$(prompt_get_ps1)

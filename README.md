@@ -63,11 +63,30 @@ nix-env -iA nixos.nur.repos.Freed-Wu.bash-prompt-style
 . "${XDG_STATE_HOME:-$HOME/.local/state}/nix/profile/share/bash-prompt-style/prompt-style.sh"
 ```
 
-## Customization
+## Customize
 
 ```sh
+# prompt_string is "\n$ " by default, which can be ignored
 # format is a string like ' %s ' to add around whitespace for text,
 # which can be ignored
 # sep is '' by default, which can be ignored
-PS1=$(prompt_get_ps1 $format $sep $fg:$bg:text1 $fg:$bg:text2 ...)
+PS1="$(prompt_get_ps1 [prompt_string] [[format] fg_color:bg_color:text [sep]] ...)"
 ```
+
+![prompt_get_ps1](https://github.com/Freed-Wu/bash-prompt-style/assets/32936898/3583d5f8-c1b3-4783-b04c-60f7f490cad7)
+
+See
+[powerline-extra-symbols](https://github.com/ryanoasis/powerline-extra-symbols)
+for `sep`.
+
+`text` can be:
+
+- `"$prompt_icon"`: icon of OS
+- `'${GITSTATUS_PROMPT}'`: git status information. See
+  [gitstatus](https://github.com/romkatv/gitstatus) to know how to customize
+  it.
+- [prompt escape code](https://www.gnu.org/software/bash/manual/bash.html#Controlling-the-Prompt)
+
+`fg_color`/`bg_color` can be color name or color value.
+See _Color Handling_ of
+[`man 5 terminfo`](https://man7.org/linux/man-pages/man5/terminfo.5.html).
