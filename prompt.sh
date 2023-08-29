@@ -21,17 +21,17 @@ has_cmd() {
 
 declare -A platforms=(
 	[unknown]=?
+	[docker]=
 	[android]=
+	[linux]=
+	[macos]=
+	[windows]=
 	[arch]=
 	[centos]=
 	[debian]=
-	[docker]=
 	[gentoo]=
-	[linux]=
-	[macos]=
 	[ubuntu]=
 	[nixos]=
-	[windows]=
 )
 if has_cmd ps && [[ $(ps -p1 -ocmd=) == /sbin/docker-init ]]; then
 	platform=docker
