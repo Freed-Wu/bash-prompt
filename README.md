@@ -1,32 +1,32 @@
-# bash-prompt-style
+# bash-prompt
 
-[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/Freed-Wu/bash-prompt-style/main.svg)](https://results.pre-commit.ci/latest/github/Freed-Wu/bash-prompt-style/main)
-[![github/workflow](https://github.com/Freed-Wu/bash-prompt-style/actions/workflows/main.yml/badge.svg)](https://github.com/Freed-Wu/bash-prompt-style/actions)
-[![codecov](https://codecov.io/gh/Freed-Wu/bash-prompt-style/branch/main/graph/badge.svg)](https://codecov.io/gh/Freed-Wu/bash-prompt-style)
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/Freed-Wu/bash-prompt/main.svg)](https://results.pre-commit.ci/latest/github/Freed-Wu/bash-prompt/main)
+[![github/workflow](https://github.com/Freed-Wu/bash-prompt/actions/workflows/main.yml/badge.svg)](https://github.com/Freed-Wu/bash-prompt/actions)
+[![codecov](https://codecov.io/gh/Freed-Wu/bash-prompt/branch/main/graph/badge.svg)](https://codecov.io/gh/Freed-Wu/bash-prompt)
 
-[![github/downloads](https://shields.io/github/downloads/Freed-Wu/bash-prompt-style/total)](https://github.com/Freed-Wu/bash-prompt-style/releases)
-[![github/downloads/latest](https://shields.io/github/downloads/Freed-Wu/bash-prompt-style/latest/total)](https://github.com/Freed-Wu/bash-prompt-style/releases/latest)
-[![github/issues](https://shields.io/github/issues/Freed-Wu/bash-prompt-style)](https://github.com/Freed-Wu/bash-prompt-style/issues)
-[![github/issues-closed](https://shields.io/github/issues-closed/Freed-Wu/bash-prompt-style)](https://github.com/Freed-Wu/bash-prompt-style/issues?q=is%3Aissue+is%3Aclosed)
-[![github/issues-pr](https://shields.io/github/issues-pr/Freed-Wu/bash-prompt-style)](https://github.com/Freed-Wu/bash-prompt-style/pulls)
-[![github/issues-pr-closed](https://shields.io/github/issues-pr-closed/Freed-Wu/bash-prompt-style)](https://github.com/Freed-Wu/bash-prompt-style/pulls?q=is%3Apr+is%3Aclosed)
-[![github/discussions](https://shields.io/github/discussions/Freed-Wu/bash-prompt-style)](https://github.com/Freed-Wu/bash-prompt-style/discussions)
-[![github/milestones](https://shields.io/github/milestones/all/Freed-Wu/bash-prompt-style)](https://github.com/Freed-Wu/bash-prompt-style/milestones)
-[![github/forks](https://shields.io/github/forks/Freed-Wu/bash-prompt-style)](https://github.com/Freed-Wu/bash-prompt-style/network/members)
-[![github/stars](https://shields.io/github/stars/Freed-Wu/bash-prompt-style)](https://github.com/Freed-Wu/bash-prompt-style/stargazers)
-[![github/watchers](https://shields.io/github/watchers/Freed-Wu/bash-prompt-style)](https://github.com/Freed-Wu/bash-prompt-style/watchers)
-[![github/contributors](https://shields.io/github/contributors/Freed-Wu/bash-prompt-style)](https://github.com/Freed-Wu/bash-prompt-style/graphs/contributors)
-[![github/commit-activity](https://shields.io/github/commit-activity/w/Freed-Wu/bash-prompt-style)](https://github.com/Freed-Wu/bash-prompt-style/graphs/commit-activity)
-[![github/last-commit](https://shields.io/github/last-commit/Freed-Wu/bash-prompt-style)](https://github.com/Freed-Wu/bash-prompt-style/commits)
-[![github/release-date](https://shields.io/github/release-date/Freed-Wu/bash-prompt-style)](https://github.com/Freed-Wu/bash-prompt-style/releases/latest)
+[![github/downloads](https://shields.io/github/downloads/Freed-Wu/bash-prompt/total)](https://github.com/Freed-Wu/bash-prompt/releases)
+[![github/downloads/latest](https://shields.io/github/downloads/Freed-Wu/bash-prompt/latest/total)](https://github.com/Freed-Wu/bash-prompt/releases/latest)
+[![github/issues](https://shields.io/github/issues/Freed-Wu/bash-prompt)](https://github.com/Freed-Wu/bash-prompt/issues)
+[![github/issues-closed](https://shields.io/github/issues-closed/Freed-Wu/bash-prompt)](https://github.com/Freed-Wu/bash-prompt/issues?q=is%3Aissue+is%3Aclosed)
+[![github/issues-pr](https://shields.io/github/issues-pr/Freed-Wu/bash-prompt)](https://github.com/Freed-Wu/bash-prompt/pulls)
+[![github/issues-pr-closed](https://shields.io/github/issues-pr-closed/Freed-Wu/bash-prompt)](https://github.com/Freed-Wu/bash-prompt/pulls?q=is%3Apr+is%3Aclosed)
+[![github/discussions](https://shields.io/github/discussions/Freed-Wu/bash-prompt)](https://github.com/Freed-Wu/bash-prompt/discussions)
+[![github/milestones](https://shields.io/github/milestones/all/Freed-Wu/bash-prompt)](https://github.com/Freed-Wu/bash-prompt/milestones)
+[![github/forks](https://shields.io/github/forks/Freed-Wu/bash-prompt)](https://github.com/Freed-Wu/bash-prompt/network/members)
+[![github/stars](https://shields.io/github/stars/Freed-Wu/bash-prompt)](https://github.com/Freed-Wu/bash-prompt/stargazers)
+[![github/watchers](https://shields.io/github/watchers/Freed-Wu/bash-prompt)](https://github.com/Freed-Wu/bash-prompt/watchers)
+[![github/contributors](https://shields.io/github/contributors/Freed-Wu/bash-prompt)](https://github.com/Freed-Wu/bash-prompt/graphs/contributors)
+[![github/commit-activity](https://shields.io/github/commit-activity/w/Freed-Wu/bash-prompt)](https://github.com/Freed-Wu/bash-prompt/graphs/commit-activity)
+[![github/last-commit](https://shields.io/github/last-commit/Freed-Wu/bash-prompt)](https://github.com/Freed-Wu/bash-prompt/commits)
+[![github/release-date](https://shields.io/github/release-date/Freed-Wu/bash-prompt)](https://github.com/Freed-Wu/bash-prompt/releases/latest)
 
-[![github/license](https://shields.io/github/license/Freed-Wu/bash-prompt-style)](https://github.com/Freed-Wu/bash-prompt-style/blob/main/LICENSE)
-[![github/languages](https://shields.io/github/languages/count/Freed-Wu/bash-prompt-style)](https://github.com/Freed-Wu/bash-prompt-style)
-[![github/languages/top](https://shields.io/github/languages/top/Freed-Wu/bash-prompt-style)](https://github.com/Freed-Wu/bash-prompt-style)
-[![github/directory-file-count](https://shields.io/github/directory-file-count/Freed-Wu/bash-prompt-style)](https://github.com/Freed-Wu/bash-prompt-style)
-[![github/code-size](https://shields.io/github/languages/code-size/Freed-Wu/bash-prompt-style)](https://github.com/Freed-Wu/bash-prompt-style)
-[![github/repo-size](https://shields.io/github/repo-size/Freed-Wu/bash-prompt-style)](https://github.com/Freed-Wu/bash-prompt-style)
-[![github/v](https://shields.io/github/v/release/Freed-Wu/bash-prompt-style)](https://github.com/Freed-Wu/bash-prompt-style)
+[![github/license](https://shields.io/github/license/Freed-Wu/bash-prompt)](https://github.com/Freed-Wu/bash-prompt/blob/main/LICENSE)
+[![github/languages](https://shields.io/github/languages/count/Freed-Wu/bash-prompt)](https://github.com/Freed-Wu/bash-prompt)
+[![github/languages/top](https://shields.io/github/languages/top/Freed-Wu/bash-prompt)](https://github.com/Freed-Wu/bash-prompt)
+[![github/directory-file-count](https://shields.io/github/directory-file-count/Freed-Wu/bash-prompt)](https://github.com/Freed-Wu/bash-prompt)
+[![github/code-size](https://shields.io/github/languages/code-size/Freed-Wu/bash-prompt)](https://github.com/Freed-Wu/bash-prompt)
+[![github/repo-size](https://shields.io/github/repo-size/Freed-Wu/bash-prompt)](https://github.com/Freed-Wu/bash-prompt)
+[![github/v](https://shields.io/github/v/release/Freed-Wu/bash-prompt)](https://github.com/Freed-Wu/bash-prompt)
 
 A [powerlevel10k](https://github.com/romkatv/powerlevel10k)-like prompt style
 of bash.
@@ -39,16 +39,16 @@ of bash.
 
 ## Install
 
-### [AUR](https://aur.archlinux.org/packages/bash-prompt-style-git)
+### [AUR](https://aur.archlinux.org/packages/bash-prompt-git)
 
 ```sh
-yay -S bash-prompt-style-git
+yay -S bash-prompt-git
 ```
 
 ### [NUR](https://nur.nix-community.org/repos/freed-wu)
 
 ```sh
-nix-env -iA nixos.nur.repos.Freed-Wu.bash-prompt-style
+nix-env -iA nixos.nur.repos.Freed-Wu.bash-prompt
 ```
 
 ## Usage
@@ -56,13 +56,13 @@ nix-env -iA nixos.nur.repos.Freed-Wu.bash-prompt-style
 `~/.bashrc`:
 
 ```sh
-. /the/path/of/this/plugin/prompt-style.sh
+. /the/path/of/this/plugin/prompt.sh
 # GNU/Linux
-. /usr/share/bash-prompt-style/prompt-style.sh
+. /usr/share/bash-prompt/prompt.sh
 # NixOS
-. /run/current-system/sw/share/bash-prompt-style/prompt-style.sh
+. /run/current-system/sw/share/bash-prompt/prompt.sh
 # Nix
-. "${XDG_STATE_HOME:-$HOME/.local/state}/nix/profile/share/bash-prompt-style/prompt-style.sh"
+. "${XDG_STATE_HOME:-$HOME/.local/state}/nix/profile/share/bash-prompt/prompt.sh"
 ```
 
 ## Customize
@@ -71,7 +71,7 @@ nix-env -iA nixos.nur.repos.Freed-Wu.bash-prompt-style
 PS1="$(prompt_get_ps1 [prompt_string] [[format] fg_color:bg_color:text [sep]] ...)"
 ```
 
-![prompt_get_ps1](https://github.com/Freed-Wu/bash-prompt-style/assets/32936898/efe0951f-155a-4b0a-8ef2-ed40fcd79900)
+![prompt_get_ps1](https://github.com/Freed-Wu/bash-prompt/assets/32936898/efe0951f-155a-4b0a-8ef2-ed40fcd79900)
 
 See
 [powerline-extra-symbols](https://github.com/ryanoasis/powerline-extra-symbols)

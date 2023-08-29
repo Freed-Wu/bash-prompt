@@ -4,7 +4,7 @@ setup() {
 	cd "$(dirname "$BATS_TEST_FILENAME")/.." || exit
 	. test/setup.sh
 	export TERM=xterm
-	. ./prompt-style.sh
+	. ./prompt.sh
 }
 
 @test prompt_get_ps1 {
