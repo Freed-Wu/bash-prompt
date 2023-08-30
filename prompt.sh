@@ -101,9 +101,10 @@ prompt_get_ps1() {
 		bg=${bg%%:*}
 		bg=${colors[$bg]:-$bg}
 		if [ -n "$last_bg" ]; then
-			ps+="$(tput setaf "$last_bg" setab "$bg")$sep"
+			ps+="$(tput setaf "$last_bg" setab "$bg")$sep$(tput setaf "$fg")$text"
+		else
+			ps+="$(tput setaf "$fg" setab "$bg")$text"
 		fi
-		ps+="$(tput setaf "$fg" setab "$bg")$text"
 		last_bg=$bg
 	done
 	ps+="\e[0m$(tput setaf "$last_bg")$sep\e[0m$prompt_string"
