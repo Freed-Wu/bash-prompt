@@ -1,4 +1,4 @@
-# shellcheck shell=bash disable=SC1091,SC2059,SC2016
+# shellcheck shell=bash disable=SC1091,SC2059,SC2016,SC2288
 # GNU/Linux
 if [ -f /usr/share/zsh-theme-powerlevel10k/gitstatus/gitstatus.prompt.sh ]; then
 	. /usr/share/zsh-theme-powerlevel10k/gitstatus/gitstatus.prompt.sh
@@ -17,6 +17,19 @@ has_cmd() {
 	for opt in "$@"; do
 		command -v "$opt" >/dev/null
 	done
+}
+
+prompt_wakatime() {
+	local entity project
+	entity="$(fc -ln -1)"
+	entity=${entity##$'\t'}
+	entity=${entity## }
+	entity="${entity%% *}"
+	# $entity is empty
+	[ -n "$entity" ] || return
+	project="$(git rev-parse --show-toplevel 2>/dev/null)" || project="$PWD"
+	project="$(basename "$project")"
+	wakatime --write --plugin bash-wakatime --entity-type app --project "$project" --entity "$entity" &>/dev/null &
 }
 
 declare -A platforms=(
@@ -110,4 +123,7 @@ prompt_get_ps1() {
 	ps+="\e[0m$(tput setaf "$last_bg")$sep\e[0m$prompt_string"
 	echo "$ps"
 }
-PS1=$(prompt_get_ps1)
+
+if has_cmd wakatime; then
+	PROMPT_COMMAND="prompt_wakatime; $PROMPT_COMMAND"
+fi

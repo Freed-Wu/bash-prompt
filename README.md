@@ -28,21 +28,28 @@
 [![github/repo-size](https://shields.io/github/repo-size/Freed-Wu/bash-prompt)](https://github.com/Freed-Wu/bash-prompt)
 [![github/v](https://shields.io/github/v/release/Freed-Wu/bash-prompt)](https://github.com/Freed-Wu/bash-prompt)
 
-A [powerlevel10k](https://github.com/romkatv/powerlevel10k)-like prompt style
-of bash.
+This project provides:
+
+- A [powerlevel10k](https://github.com/romkatv/powerlevel10k)-like prompt style
+  of bash.
 
 ![screenshot](https://github.com/Freed-Wu/Freed-Wu/assets/32936898/5c145ca4-7565-4410-9e84-99cec7476f83)
+
+- A wakatime plugin to statistic how much time you write bash in REPL.
+
+![wakatime](https://user-images.githubusercontent.com/32936898/226532448-84086ab6-241a-45f0-b8c1-6db8a7bb3fcf.jpg)
 
 ## Dependencies
 
 - [gitstatus](https://github.com/romkatv/gitstatus): provide git status
+- [wakatime-cli](https://github.com/wakatime/wakatime-cli)
 
 ## Install
 
 ### [AUR](https://aur.archlinux.org/packages/bash-prompt-git)
 
 ```sh
-yay -S bash-prompt-git
+paru -S bash-prompt-git
 ```
 
 ### [NUR](https://nur.nix-community.org/repos/freed-wu)
@@ -65,9 +72,14 @@ nix-env -iA nixos.nur.repos.Freed-Wu.bash-prompt
 . "${XDG_STATE_HOME:-$HOME/.local/state}/nix/profile/share/bash-prompt/prompt.sh"
 ```
 
-## Customize
+By default, it will enable wakatime. You can disable it by removing
+`prompt_wakatime` from `$PROMPT_COMMAND`.
+
+By default, it will not change your prompt. You should enable it by:
 
 ```sh
+PS1="$(prompt_get_ps1)"
+# or you can customize
 PS1="$(prompt_get_ps1 [prompt_string] [[format] fg_color:bg_color:text [sep]] ...)"
 ```
 
