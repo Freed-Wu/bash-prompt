@@ -72,7 +72,7 @@ fi
 if [[ -n ${SSH_TTY:-} || $USER == root ]]; then
 	prompt_host_info=" \u@\h"
 fi
-unset platforms platform has_cmd
+unset platforms platform
 
 prompt_get_ps1() {
 	if [ $# = 0 ]; then
