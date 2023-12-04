@@ -29,7 +29,9 @@ prompt_wakatime() {
 	[ -n "$entity" ] || return
 	project="$(git rev-parse --show-toplevel 2>/dev/null)" || project="$PWD"
 	project="$(basename "$project")"
-	wakatime --write --plugin bash-wakatime --entity-type app --project "$project" --entity "$entity" &>/dev/null &
+	# subshell to disable job finish message
+	# [1]+  Done                    \wakatime XXX
+	(\wakatime --write --plugin bash-wakatime --entity-type app --project "$project" --entity "$entity" &>/dev/null &)
 }
 
 declare -A platforms=(
