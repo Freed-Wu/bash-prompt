@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: mig4/setup-bats@v1
-      - uses: brokenpip3/setup-bats-libs@1.0.0
+      - uses: brokenpip3/setup-bats-libs@1.5.1
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: head
