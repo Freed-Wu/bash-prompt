@@ -14,8 +14,13 @@ elif [ -f ~/.nix-profile/share/zsh-powerlevel10k/gitstatus/gitstatus.prompt.sh ]
 fi
 
 has_cmd() {
-	for opt in "$@"; do
-		command -v "$opt" >/dev/null
+	local opt
+	for opt; do
+		if command -v "$opt" >/dev/null; then
+			continue
+		else
+			return $?
+		fi
 	done
 }
 
