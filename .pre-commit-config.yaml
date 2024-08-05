@@ -80,7 +80,7 @@ repos:
     hooks:
       - id: shfmt
   - repo: https://github.com/rubocop/rubocop
-    rev: v1.64.1
+    rev: v1.65.1
     hooks:
       - id: rubocop
 
