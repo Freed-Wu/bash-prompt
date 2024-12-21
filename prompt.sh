@@ -41,17 +41,40 @@ prompt_wakatime() {
 
 declare -A platforms=(
 	[unknown]=?
-	[docker]=
-	[android]=
-	[linux]=
-	[macos]=
-	[windows]=
+	[alpine]=
+	[amzn]=
+	[android]=
+	[aosc]=
 	[arch]=
+	[artix]=
 	[centos]=
+	[coreos]=
 	[debian]=
+	[devuan]=
+	[docker]=
+	[elementary]=
+	[endeavouros]=
+	[fedora]=
+	[freebsd]=
 	[gentoo]=
-	[ubuntu]=
+	[guix]=
+	[kali]=
+	[linux]=
+	[macos]=
+	[mageia]=
+	[manjaro]=
+	[mint]=
 	[nixos]=
+	[opensuse]=
+	[raspbian]=
+	[rhel]=
+	[rocky]=
+	[sabayon]=
+	[slackware]=
+	[sunos]=
+	[ubuntu]=
+	[void]=
+	[windows]=
 )
 if has_cmd ps && [[ $(ps -p1 -ocmd=) == /sbin/docker-init ]]; then
 	platform=docker
@@ -61,13 +84,116 @@ elif [[ $OSTYPE == darwin ]]; then
 	platform=macos
 elif [[ $OSTYPE == msys2 || $OSTYPE == cygwin ]]; then
 	platform=windows
-elif has_cmd lsb_release; then
-	platform=$(lsb_release -i)
-	platform=${platform##*:}
-	platform=${platform:1}
-	platform=$(tr '[:upper:]' '[:lower:]' <<<"$platform")
+elif [[ -r /etc/artix-release ]]; then
+	platform=artix
 elif [[ $OSTYPE == linux-gnu ]]; then
 	platform=linux
+	_prompt_filename=/etc/os-release
+	if [[ ! -r $_prompt_filename ]]; then
+		_prompt_filename=/usr/lib/os-release
+	fi
+	if [[ -r $_prompt_filename ]]; then
+		while IFS= read -r platform; do
+			if [[ $platform == ID=* ]]; then
+				platform="${platform##ID=}"
+				break
+			fi
+		done <"$_prompt_filename"
+		unset _prompt_filename
+
+		case "$platform" in
+		*arch*)
+			platform=arch
+			;;
+		*debian*)
+			platform=debian
+			;;
+		*raspbian*)
+			platform=raspbian
+			;;
+		*ubuntu*)
+			platform=ubuntu
+			;;
+		*elementary*)
+			platform=elementary
+			;;
+		*fedora*)
+			platform=fedora
+			;;
+		*coreos*)
+			platform=coreos
+			;;
+		*kali*)
+			platform=kali
+			;;
+		*gentoo*)
+			platform=gentoo
+			;;
+		*mageia*)
+			platform=mageia
+			;;
+		*centos*)
+			platform=centos
+			;;
+		*opensuse*)
+			platform=opensuse
+			;;
+		*tumbleweed*)
+			platform=opensuse
+			;;
+		*sabayon*)
+			platform=sabayon
+			;;
+		*slackware*)
+			platform=slackware
+			;;
+		*linuxmint*)
+			platform=mint
+			;;
+		*alpine*)
+			platform=alpine
+			;;
+		*aosc*)
+			platform=aosc
+			;;
+		*nixos*)
+			platform=nixos
+			;;
+		*devuan*)
+			platform=devuan
+			;;
+		*manjaro*)
+			platform=manjaro
+			;;
+		*void*)
+			platform=void
+			;;
+		*artix*)
+			platform=artix
+			;;
+		*rhel*)
+			platform=rhel
+			;;
+		*amzn*)
+			platform=amzn
+			;;
+		*endeavouros*)
+			platform=endeavouros
+			;;
+		*rocky*)
+			platform=rocky
+			;;
+		*guix*)
+			platform=guix
+			;;
+		*dock*)
+			platform=docker
+			;;
+		*)
+			platform=linux
+			;;
+		esac
+	fi
 else
 	platform=unknown
 fi
