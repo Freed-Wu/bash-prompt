@@ -32,8 +32,8 @@ prompt_wakatime() {
 	entity="${entity%% *}"
 	# $entity is empty
 	[ -n "$entity" ] || return
-	project="$(git rev-parse --show-toplevel 2>/dev/null)" || project="$PWD"
-	project="$(basename "$project")"
+	project="$(\git rev-parse --show-toplevel 2>/dev/null)" || project="$PWD"
+	project="${project##*/}"
 	# subshell to disable job finish message
 	# [1]+  Done                    \wakatime XXX
 	(\wakatime --write --plugin bash-wakatime --entity-type app --project "$project" --entity "$entity" &>/dev/null &)
@@ -76,7 +76,7 @@ declare -A platforms=(
 	[void]=
 	[windows]=
 )
-if has_cmd ps && [[ $(ps -p1 -ocmd=) == /sbin/docker-init ]]; then
+if has_cmd ps && [[ $(\ps -p1 -ocmd=) == /sbin/docker-init ]]; then
 	platform=docker
 elif [[ ${PREFIX:-} == /data/data/com.termux/files/usr ]]; then
 	platform=android
@@ -213,7 +213,7 @@ prompt_get_ps1() {
 			black:white:"$prompt_icon${prompt_host_info:-} \#" \
 			black:yellow:' \s \v' \
 			black:white:' \t' \
-			white:blue:" $(tput bold)\w" \
+			white:blue:" $(\tput bold)\w" \
 			white:black:'${GITSTATUS_PROMPT}'
 	fi
 	local -A colors=(
@@ -247,13 +247,13 @@ prompt_get_ps1() {
 		bg=${bg%%:*}
 		bg=${colors[$bg]:-$bg}
 		if [ -n "$last_bg" ]; then
-			ps+="$(tput setaf "$last_bg")$(tput setab "$bg")$sep$(tput setaf "$fg")$text"
+			ps+="$(\tput setaf "$last_bg")$(\tput setab "$bg")$sep$(\tput setaf "$fg")$text"
 		else
-			ps+="$(tput setaf "$fg")$(tput setab "$bg")$text"
+			ps+="$(\tput setaf "$fg")$(\tput setab "$bg")$text"
 		fi
 		last_bg=$bg
 	done
-	ps+="\e[0m$(tput setaf "$last_bg")$sep\e[0m$prompt_string"
+	ps+="\e[0m$(\tput setaf "$last_bg")$sep\e[0m$prompt_string"
 	echo "$ps"
 }
 
