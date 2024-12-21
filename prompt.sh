@@ -257,6 +257,4 @@ prompt_get_ps1() {
 	echo "$ps"
 }
 
-if has_cmd wakatime; then
-	PROMPT_COMMAND="prompt_wakatime; $PROMPT_COMMAND"
-fi
+has_cmd wakatime && PROMPT_COMMAND="prompt_wakatime; $PROMPT_COMMAND"
